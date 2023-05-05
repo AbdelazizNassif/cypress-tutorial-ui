@@ -6,10 +6,11 @@ jobs:
     name: Run tests then artifact the test results
     runs-on: ubuntu-22.04
     steps:
-      - name: start UAT
+      - name: start uat
         uses: cypress-io/github-action@v5
         with:
-            command: npm start
+          build: npm run build
+          start: npm start
             
       - name: Checkout - Clone the repository master branch
         uses: actions/checkout@v3
