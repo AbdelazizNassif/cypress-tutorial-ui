@@ -1,17 +1,15 @@
-name: Cypress Tests
 
+name: Cypress tests
 on: push
-
 jobs:
   cypress-run:
-    runs-on: ubuntu-latest
+    name: Run tests then artifact the test results
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
+      - name: Checkout - Clone the repository master branch
         uses: actions/checkout@v3
-      # Install NPM dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
+
+      - name: Run the testcases
         uses: cypress-io/github-action@v5
         with:
-          build: npm run build
-          start: npm start
+            command: npx cypress run
