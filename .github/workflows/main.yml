@@ -6,6 +6,12 @@ jobs:
     name: Run tests then artifact the test results
     runs-on: ubuntu-22.04
     steps:
+      - name: install dependencis
+        uses: cypress-io/github-action@v5
+        with:
+          build: npm run build
+          start: npm install
+          
       - name: start uat
         uses: cypress-io/github-action@v5
         with:
